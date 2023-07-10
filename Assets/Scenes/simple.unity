@@ -452,8 +452,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3614560524979854614, guid: bbe8bf60189464c46afa12573e5ae05b, type: 3}
-  cam: {fileID: 519420031}
   movespeed: 5
+  attack: 1
+  health: 10
+  cam: {fileID: 519420031}
 --- !u!212 &785894105
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -617,6 +619,7 @@ GameObject:
   - component: {fileID: 1318902571}
   - component: {fileID: 1318902574}
   - component: {fileID: 1318902575}
+  - component: {fileID: 1318902576}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Enemy
@@ -784,3 +787,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8914437, y: 0.6178639}
   m_EdgeRadius: 0
+--- !u!114 &1318902576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318902570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93c2a30fbe0fcb44ab15dcf551e1cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  movespeed: 5
+  attack: 1
+  health: 10

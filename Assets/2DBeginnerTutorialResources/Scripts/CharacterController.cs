@@ -4,34 +4,36 @@ using UnityEngine;
 using Move_behavior;
 using Attack_behavior;
 using Abstract_behavior;
-public class CharacterBehavior : MonoBehaviour
+public class CharacterController : AbstractBehavior
 {	
-	public GameObject prefab;
 	public Camera cam;
-	public float movespeed = 5f;
 	private Vector3 mousepos;
-	private IMoveBehavior movebehavior;
-	private AttackBehavior attackbehavior;
 	private Rigidbody2D rdb2;
 	private Animator anim;
+	//public GameObject prefab;
+	//private AttackBehavior attackbehavior;
+	//private IMoveBehavior movebehavior;
+	//public float movespeed = 5f;
 	// Start is called before the first frame update
 	private void Awake()
 	{
 		
 	}
-	void Start()
+	new void Start()
     {
+		base.Start();
 		rdb2 = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
-        movebehavior = new PlayerMove();
-		attackbehavior = new Shoot();
+        moveBehavior = new PlayerMove();
+		attackBehavior = new Shoot();
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
+		base.Update();
 		bool isrun;
-		isrun=movebehavior.Move(ref rdb2,movespeed);
+		isrun=Move(ref rdb2,movespeed);
 		anim.SetBool("Isrun", isrun);
 		Vector2 fireDirection;
 		fireDirection = Trans();
@@ -40,7 +42,7 @@ public class CharacterBehavior : MonoBehaviour
 		{
 			Debug.Log("左键按下");
 			//预制体
-			attackbehavior.Attack(fireDirection, transform.position,prefab);
+			Attack(fireDirection, transform.position, prefab);
 		}
     }
 	//根据鼠标的向量确定角色是否要反转

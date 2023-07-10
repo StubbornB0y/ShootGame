@@ -7,12 +7,12 @@ public class CameraFollow : MonoBehaviour
     //调用玩家的target
     public Transform target;
     //设置跟随平滑度
-    public float smoothing;
+    public float smoothing = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        smoothing = 0.1f;
+       
     }
 
     // Update is called once per frame

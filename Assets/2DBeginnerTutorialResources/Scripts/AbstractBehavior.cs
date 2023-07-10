@@ -11,6 +11,8 @@ namespace Abstract_behavior
 		public GameObject prefab;
 		//public Camera cam;
 		public float movespeed = 5f;
+		public float attack = 1f;
+		public float health = 10f;
 		//private Vector3 mousepos;
 		private IMoveBehavior movebehavior;
 		public IMoveBehavior moveBehavior
@@ -28,27 +30,35 @@ namespace Abstract_behavior
 				attackbehavior = value;
 			}
 		}
-		private Rigidbody2D rdb2;
-		private Animator anim;
 		// Start is called before the first frame update
 		private void Awake()
 		{
 
 		}
-		void Start()
+		public void Start()
 		{
-			rdb2 = GetComponent<Rigidbody2D>();
-			anim = GetComponent<Animator>();
-			movebehavior = new PlayerMove();
-			attackbehavior = new Shoot();
+			
 		}
 
 		// Update is called once per frame
-		void Update()
+		public void Update()
 		{
-
+			if (health <= 0)
+			{
+				Destroy(gameObject);
+			}
 		}
-		//根据鼠标的向量确定角色是否要反转
-
+		public void Attack(Vector2 fireDirection, Vector2 position, GameObject bPrefab)
+		{
+			attackbehavior.Attack(fireDirection, position, bPrefab);
+		}
+		public bool Move(ref Rigidbody2D rb2d, float speed)
+		{
+			return movebehavior.Move(ref rb2d, speed);
+		}
+		public void hurt(float damage)
+		{
+			health -= damage;
+		}
 	}
 }
