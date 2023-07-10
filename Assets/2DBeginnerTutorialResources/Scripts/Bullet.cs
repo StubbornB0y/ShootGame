@@ -13,12 +13,14 @@ public class Bullet : MonoBehaviour
     //    get { return direction; }
     //    set { direction = value; }
 	//}
+	/*
 	void Awake()
 	{
         rdbd = GetComponent<Rigidbody2D>();
         startpos = transform.position;
         rdbd.velocity = speed * transform.right;
     }
+    */
 	// Start is called before the first frame update
 	void Start()
     {
@@ -36,7 +38,14 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
 		}
     }
-    public void Setvelocity(Vector2 firedirection)
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy"))
+		{
+
+		}
+	}
+	public void Setvelocity(Vector2 firedirection)
 	{
         direction = firedirection;
         rdbd.velocity = speed * direction;

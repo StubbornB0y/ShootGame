@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Move_behavior;
 using Attack_behavior;
+using Abstract_behavior;
 public class CharacterBehavior : MonoBehaviour
 {	
 	public GameObject prefab;
@@ -32,15 +33,28 @@ public class CharacterBehavior : MonoBehaviour
 		bool isrun;
 		isrun=movebehavior.Move(ref rdb2,movespeed);
 		anim.SetBool("Isrun", isrun);
+		Vector2 fireDirection;
+		fireDirection = Trans();
+		Flip(fireDirection);
 		if (Input.GetMouseButtonDown(0))
 		{
 			Debug.Log("左键按下");
-			Vector2 fireDirection;
-			fireDirection = Trans();
 			//预制体
 			attackbehavior.Attack(fireDirection, transform.position,prefab);
 		}
     }
+	//根据鼠标的向量确定角色是否要反转
+	private void Flip(Vector2 direction)
+	{
+		if (direction.x < 0)
+		{
+			transform.localRotation = Quaternion.Euler(0, 180, 0);
+		}
+		else if (direction.x > 0)
+		{
+			transform.localRotation = Quaternion.Euler(0, 0, 0);
+		}
+	}
 	//获取鼠标当前坐标并转换成人物相对鼠标的夹角
 	private Vector2 Trans()
 	{

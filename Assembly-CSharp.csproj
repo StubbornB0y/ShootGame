@@ -59,9 +59,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\AttackBehivior.cs" />
+    <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\Bullet.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\LinearTestScript.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\MoveBehavior.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\CustomPDFTestScript.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\CurveTestScript.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\Monster Spawner Example\MonsterSpawner.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\GenerateObjects Example\GenerateObjects.cs" />
+    <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\AbstractBehavior.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\CharacterBehavior.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\DistributionTestScript.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Scripts\RandomFromDistribution.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\ExponentialTestScript.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\GenerateObjects Example\GenerateObjectsEditor.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\Monster Spawner Example\Monster.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\NormalDistributionTestScript.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\DistributionsExamples README.txt" />
+    <None Include="Assets\RandomFromDistributions\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
