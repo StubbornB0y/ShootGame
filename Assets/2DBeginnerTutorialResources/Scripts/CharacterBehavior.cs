@@ -4,12 +4,15 @@ using UnityEngine;
 using Move_behavior;
 using Attack_behavior;
 public class CharacterBehavior : MonoBehaviour
-{
+{	
+	public GameObject prefab;
 	public Camera cam;
+	public float movespeed = 5f;
 	private Vector3 mousepos;
 	private IMoveBehavior movebehavior;
 	private AttackBehavior attackbehavior;
-	public GameObject prefab;
+	private Rigidbody2D rdb2;
+	private Animator anim;
 	// Start is called before the first frame update
 	private void Awake()
 	{
@@ -17,6 +20,8 @@ public class CharacterBehavior : MonoBehaviour
 	}
 	void Start()
     {
+		rdb2 = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
         movebehavior = new PlayerMove();
 		attackbehavior = new Shoot();
     }
@@ -24,20 +29,25 @@ public class CharacterBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = movebehavior.Move(transform.position);
+		bool isrun;
+		isrun=movebehavior.Move(ref rdb2,movespeed);
+		anim.SetBool("Isrun", isrun);
 		if (Input.GetMouseButtonDown(0))
 		{
 			Debug.Log("左键按下");
 			Vector2 fireDirection;
 			fireDirection = Trans();
+			//预制体
 			attackbehavior.Attack(fireDirection, transform.position,prefab);
 		}
     }
 	//获取鼠标当前坐标并转换成人物相对鼠标的夹角
 	private Vector2 Trans()
 	{
-		mousepos = Input.mousePosition; //获取当前屏幕鼠标坐标
-		mousepos = cam.ScreenToWorldPoint(mousepos); //转化为世界坐标
+		//获取当前屏幕鼠标坐标
+		mousepos = Input.mousePosition;
+		//转化为世界坐标
+		mousepos = cam.ScreenToWorldPoint(mousepos); 
 		Vector3 gunPos = transform.position;
 		float fireangle;
 		Vector2 targetDir = (mousepos - gunPos).normalized;

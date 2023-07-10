@@ -7,19 +7,27 @@ namespace Move_behavior
 {
     public interface IMoveBehavior
 	{
-		Vector2 Move(Vector2 position);
+		bool Move(ref Rigidbody2D rb2d,float speed);
     }
     public class PlayerMove : IMoveBehavior
 	{
-		private float speed = 5f;
-		public Vector2 Move(Vector2 position)
+		//private float speed = 5f;
+		public bool Move(ref Rigidbody2D rb2d,float speed)
 		{
 			float moveX = Input.GetAxisRaw("Horizontal");
 			float moveY = Input.GetAxisRaw("Vertical");
-			Vector2 positiontemp = position;
-			positiontemp.x += moveX * speed * Time.deltaTime;
-			positiontemp.y += moveY * speed * Time.deltaTime;
-			return positiontemp;
+			Vector2 velocity = new Vector2(moveX * speed, moveY * speed);
+			rb2d.velocity = velocity;
+			if(moveX==0 && moveY == 0)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+			//positiontemp.x += moveX * speed * Time.deltaTime;
+			//positiontemp.y += moveY * speed * Time.deltaTime;
 		}
 	}
 }
