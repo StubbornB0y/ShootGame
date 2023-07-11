@@ -26,7 +26,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         var roomsList = ProceduralGenerationAlgorithms.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, new Vector3Int(dungeonWidth, dungeonHeight, 0)), minRoomWidth, minRoomHeight);
 
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
-
+        BoundsInt rooml = new BoundsInt(new Vector3Int(-10, -10, 0), new Vector3Int(20, 20, 0));
+        roomsList.Add(rooml);
         if (randomWalkRooms)
         {
             floor = CreateRoomsRandomly(roomsList);
@@ -90,6 +91,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     {
         HashSet<Vector2Int> corridor = new HashSet<Vector2Int>();
         var position = currentRoomCenter;
+        var tempposition = currentRoomCenter;
         corridor.Add(position);
         while (position.y != destination.y)
         {
@@ -102,6 +104,10 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 position += Vector2Int.down;
             }
             corridor.Add(position);
+            tempposition = position + Vector2Int.left;
+            corridor.Add(tempposition);
+            tempposition = position + Vector2Int.right;
+            corridor.Add(tempposition);
         }
         while (position.x != destination.x)
         {
@@ -113,6 +119,10 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 position += Vector2Int.left;
             }
             corridor.Add(position);
+            tempposition = position + Vector2Int.up;
+            corridor.Add(tempposition);
+            tempposition = position + Vector2Int.down;
+            corridor.Add(tempposition);
         }
         return corridor;
     }
