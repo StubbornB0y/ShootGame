@@ -15,7 +15,7 @@ public class CharacterController : AbstractBehavior
 	//private IMoveBehavior movebehavior;
 	//public float movespeed = 5f;
 	// Start is called before the first frame update
-	private void Awake()
+	new private void Awake()
 	{
 		
 	}
@@ -42,7 +42,7 @@ public class CharacterController : AbstractBehavior
 		{
 			Debug.Log("左键按下");
 			//预制体
-			Attack(fireDirection, transform.position, prefab);
+			Attack(fireDirection, transform.position, prefab, attack);
 		}
     }
 	//根据鼠标的向量确定角色是否要反转

@@ -9,6 +9,7 @@ namespace Abstract_behavior
 	public abstract class AbstractBehavior : MonoBehaviour
 	{
 		public GameObject prefab;
+		public GameObject deadprefab;
 		//public Camera cam;
 		public float movespeed = 5f;
 		public float attack = 1f;
@@ -31,7 +32,7 @@ namespace Abstract_behavior
 			}
 		}
 		// Start is called before the first frame update
-		private void Awake()
+		public void Awake()
 		{
 
 		}
@@ -43,22 +44,27 @@ namespace Abstract_behavior
 		// Update is called once per frame
 		public void Update()
 		{
-			if (health <= 0)
-			{
-				Destroy(gameObject);
-			}
+			Dead();
 		}
-		public void Attack(Vector2 fireDirection, Vector2 position, GameObject bPrefab)
+		public void Attack(Vector2 fireDirection, Vector2 position, GameObject bPrefab, float damage = 1f)
 		{
-			attackbehavior.Attack(fireDirection, position, bPrefab);
+			attackbehavior.Attack(fireDirection, position, bPrefab, damage);
 		}
 		public bool Move(ref Rigidbody2D rb2d, float speed)
 		{
 			return movebehavior.Move(ref rb2d, speed);
 		}
-		public void hurt(float damage)
+		public void Hurt(float damage)
 		{
 			health -= damage;
+		}
+		public void Dead()
+		{
+			if (health <= 0)
+			{
+				Destroy(gameObject);
+				Instantiate(deadprefab, transform.position, Quaternion.identity);
+			}
 		}
 	}
 }

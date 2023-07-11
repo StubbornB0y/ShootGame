@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,26 +7,27 @@ namespace Attack_behavior
     public abstract class AttackBehavior : Object
     {
         // Start is called before the first frame update
-        public abstract void Attack(Vector2 fireDirection=new Vector2() , Vector2 position=new Vector2(), GameObject bPrefab=null) ;
+        public abstract void Attack(Vector2 fireDirection = new Vector2(), Vector2 position = new Vector2(), GameObject bPrefab = null, float damage = 1f);
     }
     public class Shoot : AttackBehavior
 	{
         public GameObject bulletPrefab;
-        override public void Attack(Vector2 fireDirection,Vector2 position,GameObject bPrefab)
-		{
+        override public void Attack(Vector2 fireDirection, Vector2 position, GameObject bPrefab, float damage = 1f)
+        {
 
             bulletPrefab = bPrefab;
-            //ÒÀÕÕ´«ÈëµÄ¶şÎ¬ÏòÁ¿¼ÆËã½Ç¶È
+            //ä¾ç…§ä¼ å…¥çš„äºŒç»´å‘é‡è®¡ç®—è§’åº¦
             float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg;
-            //×ª»¯ÎªÅ·À­½Ç
+            //è½¬åŒ–ä¸ºæ¬§æ‹‰è§’
             Vector3 eulerangle = new Vector3(0, 0, angle);
-            //´´½¨×Óµ¯£¬ÉèÖÃ³õÊ¼Î»ÖÃºÍĞı×ª
+            //åˆ›å»ºå­å¼¹ï¼Œè®¾ç½®åˆå§‹ä½ç½®å’Œæ—‹è½¬
             bulletPrefab = Instantiate(bulletPrefab, position , Quaternion.Euler(eulerangle));  
-            //»ñÈ¡Ô¤ÖÆÌå°ó¶¨µÄ½Å±¾
+            //è·å–é¢„åˆ¶ä½“ç»‘å®šçš„è„šæœ¬
             Bullet bullet = bulletPrefab.GetComponent<Bullet>();
 			if (bullet != null)
 			{
-                bullet.Setvelocity(fireDirection);
+                bullet.Setvelocity(fireDirection.normalized);
+                bullet.damage = damage;
 			}
 		}
 	}

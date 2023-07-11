@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Abstract_behavior;
 
-public class BatController : AbstractBehavior
+public class BatController : EnemyBehavior
 {
 
     // Start is called before the first frame update

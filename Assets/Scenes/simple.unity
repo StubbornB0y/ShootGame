@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3614560524979854614, guid: bbe8bf60189464c46afa12573e5ae05b, type: 3}
+  deadprefab: {fileID: 5597070047977634397, guid: d1303b3ac49c5bd43a21d7eb2b15ed69, type: 3}
   movespeed: 5
   attack: 1
   health: 10
@@ -800,6 +801,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
+  deadprefab: {fileID: 5597070047977634397, guid: d1303b3ac49c5bd43a21d7eb2b15ed69, type: 3}
   movespeed: 5
   attack: 1
   health: 10
+  flashtime: 0.2
+  bleedprefab: {fileID: 4356278801300106184, guid: f113f579b982add458b2c8711ecc49a3, type: 3}

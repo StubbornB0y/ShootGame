@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float damage = 1f;
     Rigidbody2D rdbd;
     public float destroyDistance = 50f;
     public float speed = 10f;
@@ -48,7 +49,8 @@ public class Bullet : MonoBehaviour
 		if (collision.gameObject.CompareTag("Enemy"))
 		{
             Debug.Log("hit");
-            collision.GetComponent<BatController>().hurt(5);
+            collision.GetComponent<EnemyBehavior>().Hurt(damage);
+            Destroy(gameObject);
 		}
 	}
 	public void Setvelocity(Vector2 firedirection)

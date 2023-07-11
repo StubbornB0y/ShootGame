@@ -54,8 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="D:\Microsoft\Visual Studio2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="D:\UnityEditor\2022.3.0f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
-    <Analyzer Include="D:\UnityEditor\2022.3.0f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\AttackBehivior.cs" />
@@ -63,22 +61,36 @@
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\Bullet.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\CharacterController.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\LinearTestScript.cs" />
+    <Compile Include="Assets\_Scripts\AbstractDungeonGenerator.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\MoveBehavior.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\CustomPDFTestScript.cs" />
+    <Compile Include="Assets\CS8032WarningFixer.cs" />
+    <Compile Include="Assets\_Scripts\CorridorFirstDungeonGenerator.cs" />
+    <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\EnemyBehavior.cs" />
+    <Compile Include="Assets\_Scripts\Data\SimpleRandomWalkSO.cs" />
+    <Compile Include="Assets\_Scripts\WallTypesHelper.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\CurveTestScript.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\Monster Spawner Example\MonsterSpawner.cs" />
+    <Compile Include="Assets\_Scripts\TilemapVisualizer.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\GenerateObjects Example\GenerateObjects.cs" />
+    <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\DeadEffect.cs" />
+    <Compile Include="Assets\_Scripts\WallGenerator.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\AbstractBehavior.cs" />
+    <Compile Include="Assets\_Scripts\RoomFirstDungeonGenerator.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\DistributionTestScript.cs" />
+    <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\BleedEffect.cs" />
     <Compile Include="Assets\RandomFromDistributions\Scripts\RandomFromDistribution.cs" />
+    <Compile Include="Assets\_Scripts\ProceduralGenerationAlgorithms.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\ExponentialTestScript.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\GenerateObjects Example\GenerateObjectsEditor.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\BatController.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\Monster Spawner Example\Monster.cs" />
+    <Compile Include="Assets\_Scripts\SimpleRandomWalkDungeonGenerator.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\NormalDistributionTestScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\DistributionsExamples README.txt" />
+    <None Include="Assets\_Sprites\Dungeon\character and tileset\Licence.txt" />
     <None Include="Assets\RandomFromDistributions\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -860,8 +872,7 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-  </ItemGroup>
+  <ItemGroup></ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
