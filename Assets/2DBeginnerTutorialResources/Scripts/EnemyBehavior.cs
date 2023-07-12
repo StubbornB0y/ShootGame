@@ -9,10 +9,12 @@ public class EnemyBehavior : AbstractBehavior
     public GameObject bleedprefab;
     private SpriteRenderer sr;
     private Color origincolor;
+    //private CharacterController character;
 	// Start is called before the first frame update
 	new public void Awake()
 	{
         base.Awake();
+        //character = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
 		sr = GetComponent<SpriteRenderer>();
 	}
 	new public void Start()
@@ -43,5 +45,11 @@ public class EnemyBehavior : AbstractBehavior
         FlashColor(flashtime);
         Instantiate(bleedprefab, transform.position, Quaternion.identity);
 	}
-    
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if(collision.gameObject.CompareTag("Player") && collision.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
+		{
+            collision.GetComponent<CharacterController>().Hurt(attack);
+		}
+	}
 }

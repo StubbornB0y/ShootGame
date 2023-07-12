@@ -52,7 +52,13 @@ public class Bullet : MonoBehaviour
             collision.GetComponent<EnemyBehavior>().Hurt(damage);
             Destroy(gameObject);
 		}
-	}
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("Wall");
+            //collision.GetComponent<EnemyBehavior>().Hurt(damage);
+            Destroy(gameObject);
+        }
+    }
 	public void Setvelocity(Vector2 firedirection)
 	{
         direction = firedirection;

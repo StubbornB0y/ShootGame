@@ -31,6 +31,14 @@ namespace Abstract_behavior
 				attackbehavior = value;
 			}
 		}
+		private IDashBehavior dashbehavior;
+		public IDashBehavior dashBehavior
+		{
+			set
+			{
+				dashbehavior = value;
+			}
+		}
 		// Start is called before the first frame update
 		public void Awake()
 		{
@@ -54,6 +62,10 @@ namespace Abstract_behavior
 		{
 			return movebehavior.Move(ref rb2d, speed);
 		}
+		public Vector2 Dash(ref Rigidbody2D rb2d, float speed, Vector2 Direction)
+		{
+			return dashbehavior.Dash(ref rb2d, speed, Direction);
+		}
 		public void Hurt(float damage)
 		{
 			health -= damage;
@@ -66,5 +78,6 @@ namespace Abstract_behavior
 				Instantiate(deadprefab, transform.position, Quaternion.identity);
 			}
 		}
+
 	}
 }

@@ -60,10 +60,12 @@
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\Bullet.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\CharacterController.cs" />
+    <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\HealthBar.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\LinearTestScript.cs" />
     <Compile Include="Assets\_Scripts\AbstractDungeonGenerator.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\MoveBehavior.cs" />
     <Compile Include="Assets\RandomFromDistributions\Examples\DistributionsExamples\CustomPDFTestScript.cs" />
+    <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\DashBehavior.cs" />
     <Compile Include="Assets\CS8032WarningFixer.cs" />
     <Compile Include="Assets\_Scripts\CorridorFirstDungeonGenerator.cs" />
     <Compile Include="Assets\2DBeginnerTutorialResources\Scripts\EnemyBehavior.cs" />
