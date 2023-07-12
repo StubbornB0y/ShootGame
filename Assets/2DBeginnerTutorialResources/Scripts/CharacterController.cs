@@ -115,8 +115,8 @@ public class CharacterController : AbstractBehavior
 		HealthBar.HealthCurrent = (int)health;
 		if(health == 0)
 		{
-			anim.SetTrigger("Die");
-			Invoke(nameof(Dead), dashTime);
+			anim.SetTrigger("Dead");
+			Invoke(nameof(Dead), 0.8f);
 		}
 		BlinkPlayer(Blinks, blinkpertime);
 	}
